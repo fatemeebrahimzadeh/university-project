@@ -63,14 +63,23 @@ export default {
     theme: {
       dark: true,
       themes: {
+        light: {
+          primary: "#1976D2", // Blue
+          secondary: "#424242", // Grey
+          accent: "#82B1FF", // Light Blue
+          error: "#FF5252", // Red
+          info: "#2196F3", // Info Blue
+          success: "#4CAF50", // Green
+          warning: "#FFC107", // Yellow
+        },
         dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3,
+          primary: "#BB86FC", // Purple
+          secondary: "#03DAC6", // Teal
+          accent: "#03DAC6", // Teal
+          error: "#CF6679", // Red
+          info: "#BB86FC", // Info Purple
+          success: "#03DAC6", // Green
+          warning: "#FFC107", // Yellow
         },
       },
     },

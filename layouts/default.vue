@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app :dark="isDark">
     <!-- Navbar -->
     <Navbar />
 
@@ -19,8 +19,19 @@
   </v-app>
 </template>
 
-<script setup lang="ts">
+<script>
 import Navbar from "~/components/Navbar.vue";
+
+export default {
+  components: [
+    Navbar,
+  ],
+  computed: {
+    isDark() {
+      return this.$store.getters.isDark; // Access Vuex getter for the theme
+    },
+  },
+};
 </script>
 
 <style scoped>
