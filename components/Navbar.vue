@@ -1,6 +1,5 @@
 <template>
   <v-app-bar app color="primary" dark>
-    <v-app-bar-nav-icon @click="drawer = !drawer" />
     <v-toolbar-title>University Project</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-btn text>
@@ -11,12 +10,6 @@
     </v-btn>
   </v-app-bar>
 </template>
-
-<script setup lang="ts">
-import { ref } from "vue";
-
-const drawer = ref(false);
-</script>
 
 <style scoped>
 .v-list-item {
