@@ -46,8 +46,8 @@
               </v-col>
               <v-col cols="12">
                 <v-text-field
-                  label="Instructor"
-                  v-model="form.instructor"
+                  label="instructorId"
+                  v-model="form.instructorId"
                   required
                 ></v-text-field>
               </v-col>
@@ -85,12 +85,12 @@ const dialogTitle = ref("Add Class");
 const form = ref<Class>({
   id: 0,
   name: "",
-  instructor: "",
+  instructorId: "",
   schedule: "",
 });
 const headers = [
   { text: "Name", value: "name" },
-  { text: "Instructor", value: "instructor" },
+  { text: "instructorId", value: "instructorId" },
   { text: "Schedule", value: "schedule" },
   { text: "Actions", value: "actions", sortable: false },
 ];
@@ -143,7 +143,7 @@ const editClass = (classItem: Class) => {
 const openDialog = () => {
   dialog.value = true;
   dialogTitle.value = "Add Class";
-  form.value = { id: 0, name: "", instructor: "", schedule: "" };
+  form.value = { id: 0, name: "", instructorId: "", schedule: "" };
 };
 
 // Close the dialog

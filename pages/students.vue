@@ -52,11 +52,15 @@
                 ></v-text-field>
               </v-col>
               <v-col cols="12">
-                <v-text-field
-                  label="Course"
-                  v-model="form.course"
+                <v-select
+                  label="Class IDs"
+                  v-model="form.classIds"
+                  :items="availableClasses"
+                  multiple
                   required
-                ></v-text-field>
+                  item-text="name"
+                  item-value="id"
+                ></v-select>
               </v-col>
             </v-row>
           </v-container>
@@ -86,12 +90,12 @@ const form = ref<Student>({
   id: 0,
   name: "",
   email: "",
-  course: "",
+  classIds: [],
 });
 const headers = [
   { text: "Name", value: "name" },
   { text: "Email", value: "email" },
-  { text: "Course", value: "course" },
+  { text: "classIds", value: "classIds" },
   { text: "Actions", value: "actions", sortable: false },
 ];
 
@@ -143,7 +147,7 @@ const editStudent = (student: Student) => {
 const openDialog = () => {
   dialog.value = true;
   dialogTitle.value = "Add Student";
-  form.value = { id: 0, name: "", email: "", course: "" };
+  form.value = { id: 0, name: "", email: "", classIds: [] };
 };
 
 // Close the dialog

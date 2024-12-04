@@ -1,24 +1,14 @@
 {
   "students": [
-    { "id": 1, "name": "John Doe", "email": "john.doe@example.com", "course": "Math 101" },
-    { "id": 2, "name": "Jane Smith", "email": "jane.smith@example.com", "course": "History 201" }
+    { "id": 1, "name": "John Doe", "email": "john.doe@example.com", "classIds": [1, 2] },
+    { "id": 2, "name": "Jane Smith", "email": "jane.smith@example.com", "classIds": [1] }
   ],
   "classes": [
-    { "id": 1, "name": "Math 101", "instructor": "Dr. Albert", "schedule": "MWF 10:00-11:00 AM" },
-    { "id": 2, "name": "History 201", "instructor": "Dr. Smith", "schedule": "TTh 1:00-2:30 PM" }
+    { "id": 1, "name": "Math 101", "instructorId": 1, "schedule": "MWF 10:00-11:00 AM" },
+    { "id": 2, "name": "History 201", "instructorId": 2, "schedule": "TTh 1:00-2:30 PM" }
   ],
   "professors": [
-    {
-      "id": "1",
-      "name": "Dr. Alice Smith",
-      "department": "Mathematics",
-      "email": "alice.smith@example.com"
-    },
-    {
-      "id": "2",
-      "name": "Dr. Bob Johnson",
-      "department": "History",
-      "email": "bob.johnson@example.com"
-    }
+    { "id": 1, "name": "Dr. Alice Smith", "department": "Mathematics", "email": "alice.smith@example.com", "classIds": [1] },
+    { "id": 2, "name": "Dr. Bob Johnson", "department": "History", "email": "bob.johnson@example.com", "classIds": [2] }
   ]
 }

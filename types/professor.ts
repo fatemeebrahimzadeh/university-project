@@ -3,4 +3,5 @@ export interface Professor {
   name: string;
   department: string;
   email: string;
+  classIds: number[];
 }
