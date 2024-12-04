@@ -1,44 +1,41 @@
-name: ci
+name: CI/CD for Nuxt Project
 
 on:
   push:
     branches:
       - main
-      - master
   pull_request:
     branches:
       - main
-      - master
 
 jobs:
-  ci:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: [lts/*]
+  build:
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout 🛎
-        uses: actions/checkout@master
+      # Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: Setup node env 🏗
-        uses: actions/setup-node@v3.0.0
+      # Set up Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node }}
-          check-latest: true
+          node-version: 16 # Specify the Node.js version you are using
+          cache: 'npm'      # Cache npm dependencies
 
-      - name: Cache node_modules 📦
-        uses: actions/cache@v2.1.7
+      # Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # Build the project
+      - name: Build the project
+        run: npm run build
+
+      # Optional: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main' && success()
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      - name: Install dependencies 👨🏻‍💻
-        run: npm ci --prefer-offline --no-audit
-
-      - name: Run linter 👀
-        run: npm run lint
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
