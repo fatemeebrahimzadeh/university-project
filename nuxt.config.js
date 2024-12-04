@@ -53,7 +53,36 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: 'en',
+      name: "University Project",
+      short_name: "University",
+      description: "A Nuxt.js application for managing university-related data",
+      lang: "en",
+      background_color: "#ffffff",
+      theme_color: "#1976D2",
+      display: "standalone",
+      icons: [
+        {
+          src: "/icon-192x192.png",
+          sizes: "192x192",
+          type: "image/png",
+        },
+        {
+          src: "/icon-512x512.png",
+          sizes: "512x512",
+          type: "image/png",
+        },
+      ],
+    },
+    workbox: {
+      enabled: true, // Enable Service Worker
+      offline: true, // Enable offline support
+      runtimeCaching: [
+        {
+          urlPattern: 'https://your-api-domain/.*',
+          handler: 'NetworkFirst', // Cache-first or network-first
+          method: 'GET',
+        },
+      ],
     },
   },
 
