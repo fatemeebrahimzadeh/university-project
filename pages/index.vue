@@ -32,6 +32,11 @@
                   <v-btn block color="success" large>Professors and Students (SSR)</v-btn>
                 </NuxtLink>
               </v-col>
+              <v-col cols="12" md="6">
+                <NuxtLink to="/ssg-example">
+                  <v-btn block color="success" large>Students and Professors (SSG)</v-btn>
+                </NuxtLink>
+              </v-col>
             </v-row>
           </v-card-actions>
         </v-card>
