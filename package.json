@@ -21,6 +21,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/pwa": "^3.3.5",
+    "@nuxtjs/tailwindcss": "^6.12.2",
     "core-js": "^3.25.3",
     "nuxt": "^2.15.8",
     "sharp": "^0.33.5",
