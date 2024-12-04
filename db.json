@@ -2,5 +2,9 @@
   "students": [
     { "id": 1, "name": "John Doe", "email": "john.doe@example.com", "course": "Math 101" },
     { "id": 2, "name": "Jane Smith", "email": "jane.smith@example.com", "course": "History 201" }
+  ],
+  "classes": [
+    { "id": 1, "name": "Math 101", "instructor": "Dr. Albert", "schedule": "MWF 10:00-11:00 AM" },
+    { "id": 2, "name": "History 201", "instructor": "Dr. Smith", "schedule": "TTh 1:00-2:30 PM" }
   ]
 }
