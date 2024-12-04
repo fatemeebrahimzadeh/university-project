@@ -1,7 +1,7 @@
 <template>
   <v-app :dark="isDark">
     <!-- Navbar -->
-    <Navbar />
+    <Navbar v-if="isNavbarVisible" />
 
     <!-- Main Content -->
     <v-main>
@@ -20,16 +20,30 @@
 </template>
 
 <script>
-import Navbar from "~/components/Navbar.vue";
+import { defineAsyncComponent, ref, onMounted } from "vue";
 
 export default {
-  components: [
-    Navbar,
-  ],
+  components: {
+    Navbar: defineAsyncComponent(() =>
+      import("~/components/Navbar.vue")
+    ),
+  },
   computed: {
     isDark() {
       return this.$store.getters.isDark; // Access Vuex getter for the theme
     },
+  },
+  setup() {
+    const isNavbarVisible = ref(false);
+
+    onMounted(() => {
+      // Delay showing the Navbar for better UX or preload it after a certain action
+      setTimeout(() => {
+        isNavbarVisible.value = true;
+      }, 100);
+    });
+
+    return { isNavbarVisible };
   },
 };
 </script>
